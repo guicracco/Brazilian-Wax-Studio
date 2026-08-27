@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Location & Opening Hours | Brazilian Wax Studio London</title>
-<meta name="description" content="Visit Brazilian Wax Studio London in Holborn, Central London. Check our opening hours and get directions to 7/8 Little Turnstile.">
+<title>Location and Scheduling | Brazilian Wax Studio London</title>
+<meta name="description" content="Visit Brazilian Wax Studio London in Holborn, Central London. Check availability and schedule your waxing appointment at 7/8 Little Turnstile.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,7 +18,7 @@
     <nav class="nav-links" id="nav-links">
       <a href="index.html">Home</a>
       <a href="sobre-marcia.html">About Marcia</a>
-      <a href="localizacao.html" class="active">Location &amp; Hours</a>
+      <a href="localizacao.html" class="active">Location and Scheduling</a>
       <a href="contato.html">Contact</a>
     </nav>
     <div class="nav-cta">
@@ -35,10 +35,10 @@
 
 <section class="page-hero">
   <div class="container">
-    <div class="breadcrumb"><a href="index.html">Home</a> / Location &amp; Hours</div>
+    <div class="breadcrumb"><a href="index.html">Home</a> / Location and Scheduling</div>
     <span class="eyebrow">Visit us</span>
-    <h1>Studio Location &amp; Opening Hours</h1>
-    <p>Conveniently located in Holborn, Central London. Easy access via public transport for all your professional waxing treatments.</p>
+    <h1>Location and Scheduling</h1>
+    <p>Choose a convenient date and time for your professional waxing treatment at our private Holborn studio.</p>
   </div>
 </section>
 
@@ -69,6 +69,28 @@
           Holborn, London WC1V 7DX<br><br>
           <strong>Phone:</strong> +44 7851 423765
         </div>
+        <form id="booking-form" class="booking-form">
+          <h3 style="color:var(--white); margin-top:28px;">Schedule an appointment</h3>
+          <label for="booking-service">Service</label>
+          <select id="booking-service" required>
+            <option value="">Choose a service...</option>
+            <option>Male Brazilian</option><option>Male Hollywood</option>
+            <option>Female Brazilian</option><option>Female Hollywood</option>
+            <option>Full Legs</option><option>Other treatment</option>
+          </select>
+          <div class="booking-fields">
+            <div><label for="booking-date">Date</label><input type="date" id="booking-date" required></div>
+            <div><label for="booking-time">Time</label><select id="booking-time" required>
+              <option value="">Choose...</option><option>07:00</option><option>08:00</option><option>09:00</option>
+              <option>10:00</option><option>11:00</option><option>12:00</option><option>13:00</option>
+              <option>14:00</option><option>15:00</option><option>16:00</option><option>17:00</option><option>18:00</option>
+            </select></div>
+          </div>
+          <label for="booking-name">Full name</label><input type="text" id="booking-name" placeholder="Your name" required>
+          <label for="booking-email">Email address</label><input type="email" id="booking-email" placeholder="you@example.com" required>
+          <button type="submit" class="btn btn-gold">Book this time</button>
+          <div id="booking-status" class="booking-status" role="status"></div>
+        </form>
       </div>
     </div>
   </div>
@@ -88,7 +110,7 @@
       <ul>
         <li><a href="sobre-marcia.html">About Marcia</a></li>
         <li><a href="femenino.html">Women's Waxing</a></li>
-        <li><a href="localizacao.html">Location &amp; Hours</a></li>
+        <li><a href="localizacao.html">Location and Scheduling</a></li>
       </ul>
     </div>
     <div class="footer-col">
