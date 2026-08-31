@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>Pay £10 Booking Deposit | Brazilian Wax Studio London</title>
+<meta name="description" content="Pay the £10 booking deposit to secure your appointment at Brazilian Wax Studio London.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav-row">
+    <a href="index.html" class="logo" aria-label="Brazilian Wax Studio — home">
+      <span class="l1">Brazilian<span>Wax</span></span>
+      <span class="l2">Studio</span>
+    </a>
+    <div class="nav-cta"><a href="localizacao.html" class="nav-back-btn">Back to scheduling</a></div>
+  </div>
+</header>
+
+<main class="payment-page">
+  <div class="container">
+    <div class="payment-card">
+      <span class="eyebrow">Appointment deposit</span>
+      <h1>Secure your appointment</h1>
+      <p class="payment-intro">A £10 deposit is required to reserve this time. It helps protect the appointment when a client cannot attend.</p>
+      <div class="booking-summary">
+        <div><span>Service</span><strong id="payment-service">Your selected service</strong></div>
+        <div><span>Date</span><strong id="payment-date">Your selected date</strong></div>
+        <div><span>Time</span><strong id="payment-time">Your selected time</strong></div>
+        <div><span>Client</span><strong id="payment-name">Your name</strong></div>
+      </div>
+      <div class="payment-total"><span>Booking deposit</span><strong>£10.00</strong></div>
+      <button type="button" id="pay-deposit" class="btn btn-primary btn-block">Pay £10 deposit</button>
+      <p class="payment-note">Your appointment is only confirmed after the deposit has been received. Payment processing will be handled securely by the studio.</p>
+      <div id="payment-status" class="payment-status" role="status"></div>
+    </div>
+  </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
