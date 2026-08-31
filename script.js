@@ -140,6 +140,90 @@ document.addEventListener('DOMContentLoaded', function () {
   var yearEl = document.querySelector('#year');
   if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
 
+  /* Scroll-reveal: fade + rise elements marked .reveal-target as they enter view */
+  var revealEls = document.querySelectorAll('.reveal-target');
+  if (revealEls.length && 'IntersectionObserver' in window) {
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(function (el) { revealObserver.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+
+  /* Testimonials carousel */
+  var testiTrack = document.querySelector('.testi-track');
+  if (testiTrack) {
+    var fullReviewsCarousel = document.querySelector('.testi-carousel--full');
+    if (fullReviewsCarousel) {
+      var testiCards = Array.prototype.slice.call(document.querySelectorAll('.testi-card'));
+      if (testiCards.length) {
+        testiCards.forEach(function (card) {
+          var slide = document.createElement('div');
+          slide.className = 'testi-slide';
+          slide.innerHTML = card.innerHTML;
+          testiTrack.appendChild(slide);
+        });
+      }
+      var testiGrid = document.querySelector('.testi-grid');
+      if (testiGrid) testiGrid.style.display = 'none';
+    }
+
+    var slides = Array.prototype.slice.call(testiTrack.querySelectorAll('.testi-slide'));
+    var current = 0;
+    var timer;
+    var prevBtn = document.querySelector('.testi-arrow--prev');
+    var nextBtn = document.querySelector('.testi-arrow--next');
+
+    function goTo(i) {
+      if (!slides.length) return;
+      slides[current] && slides[current].classList.remove('is-active');
+      current = (i + slides.length) % slides.length;
+      slides[current].classList.add('is-active');
+    }
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
+    function resetTimer() {
+      clearInterval(timer);
+      timer = setInterval(next, 5500);
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', function () { prev(); resetTimer(); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { next(); resetTimer(); });
+
+    if (slides.length) {
+      slides[0].classList.add('is-active');
+      resetTimer();
+    }
+  }
+
+  /* Testimonials search filter (comments page) */
+  var testiSearch = document.querySelector('#testi-search');
+  if (testiSearch) {
+    var testiSlides = Array.prototype.slice.call(document.querySelectorAll('.testi-slide'));
+    var testiEmpty = document.querySelector('.testi-empty');
+    testiSearch.addEventListener('input', function () {
+      var q = testiSearch.value.trim().toLowerCase();
+      var visibleCount = 0;
+      testiSlides.forEach(function (slide) {
+        var match = slide.textContent.toLowerCase().indexOf(q) !== -1;
+        slide.classList.toggle('is-hidden', !match);
+        if (match) visibleCount++;
+      });
+      if (visibleCount) {
+        var firstVisible = testiSlides.find(function (slide) { return !slide.classList.contains('is-hidden'); });
+        testiSlides.forEach(function (slide) { slide.classList.remove('is-active'); });
+        if (firstVisible) firstVisible.classList.add('is-active');
+      }
+      if (testiEmpty) testiEmpty.classList.toggle('show', visibleCount === 0);
+    });
+  }
+
   /* Hide header when scrolling down, show when scrolling up */
   var header = document.querySelector('.site-header');
   if (header) {
