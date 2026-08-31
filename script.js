@@ -85,27 +85,28 @@ document.addEventListener('DOMContentLoaded', function () {
       var name = getBookingValue('#booking-name');
       var email = getBookingValue('#booking-email');
 
-      var whatsappMessage = [
-        'Hi Marcia, I\'d like to schedule a consultation.',
-        'Name: ' + name,
-        'Service: ' + service,
-        'Date: ' + date,
-        'Time: ' + time,
-        'Email: ' + email,
-        '',
-        'Please let me know how to pay the deposit to confirm the booking.'
-      ].join('\n');
-
-      var whatsappUrl = 'https://wa.me/447851423765?text=' + encodeURIComponent(whatsappMessage);
-      window.open(whatsappUrl, '_blank');
+      // Save booking details to sessionStorage for payment page
+      var bookingData = {
+        service: service,
+        date: date,
+        time: time,
+        name: name,
+        email: email
+      };
+      sessionStorage.setItem('waxBooking', JSON.stringify(bookingData));
 
       var bookingStatus = document.querySelector('#booking-status');
       if (bookingStatus) {
-        bookingStatus.textContent = 'Your request has been sent via WhatsApp. Marcia will confirm availability and payment for the deposit.';
+        bookingStatus.textContent = 'Processing your booking...';
         bookingStatus.classList.add('show');
       }
 
       bookingForm.reset();
+
+      // Redirect to payment page
+      setTimeout(function() {
+        window.location.href = 'payment.html';
+      }, 1000);
     });
   }
 
