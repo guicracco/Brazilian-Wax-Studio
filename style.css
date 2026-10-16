@@ -1102,3 +1102,35 @@ h3{ font-weight: 600; }
 .banner-photo{ display:block; max-width:1000px; margin:0 auto; border-radius:18px; overflow:hidden; box-shadow:var(--shadow-card); transition:transform .25s ease, box-shadow .25s ease; }
 .banner-photo:hover{ transform:translateY(-4px); }
 .banner-photo img{ width:100%; height:auto; display:block; }
+
+/* ===== Fix: botão "Women's Waxing" no celular (círculo vazio) ===== */
+@media (max-width: 560px){
+  .nav-cta .nav-women-btn{
+    position: relative;
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    padding: 0;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: 1.5px solid var(--charcoal);
+    color: var(--charcoal);
+  }
+  /* ícone feminino (♀) desenhado em CSS, usa a cor do texto do botão */
+  .nav-cta .nav-women-btn::before{
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: currentColor;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='9' r='5'/%3E%3Cpath d='M12 14v7M8.5 18h7'/%3E%3C/svg%3E") center / contain no-repeat;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='9' r='5'/%3E%3Cpath d='M12 14v7M8.5 18h7'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+  .nav-cta .nav-women-btn:hover,
+  .nav-cta .nav-women-btn:active{
+    background: var(--charcoal);
+    color: var(--white);
+  }
+}
