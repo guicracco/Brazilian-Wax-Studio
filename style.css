@@ -1188,7 +1188,7 @@ h3{ font-weight: 600; }
 
 .photo-wrap{ position:relative; }
 .vania-badge{ position:absolute; top:18px; right:18px; z-index:3; display:flex; align-items:center; gap:14px; background:rgba(255,255,255,.95); padding:8px 20px 8px 8px; border-radius:999px; box-shadow:0 8px 26px rgba(0,0,0,.28); }
-.vania-badge img{ width:104px; height:104px; border-radius:50%; object-fit:cover; object-position:center 25%; border:3px solid var(--gold); }
-.vania-badge span{ display:flex; flex-direction:column; font-size:13.5px; line-height:1.35; color:var(--charcoal-60); max-width:150px; }
-.vania-badge strong{ font-size:18px; color:var(--charcoal); }
-@media (max-width:560px){ .vania-badge{ gap:10px; padding:6px 14px 6px 6px; top:12px; right:12px; } .vania-badge img{ width:80px; height:80px; } .vania-badge span{ font-size:11.5px; max-width:105px; } .vania-badge strong{ font-size:15px; } }
+.vania-badge img{ width:132px; height:132px; border-radius:50%; object-fit:cover; object-position:center 25%; border:3px solid var(--gold); }
+.vania-badge span{ display:flex; flex-direction:column; font-size:14.5px; line-height:1.35; color:var(--charcoal-60); max-width:160px; }
+.vania-badge strong{ font-size:20px; color:var(--charcoal); }
+@media (max-width:560px){ .vania-badge{ gap:10px; padding:6px 14px 6px 6px; top:12px; right:12px; } .vania-badge img{ width:100px; height:100px; } .vania-badge span{ font-size:11.5px; max-width:110px; } .vania-badge strong{ font-size:15px; } }
